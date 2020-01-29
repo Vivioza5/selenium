@@ -1,0 +1,1523 @@
+<html><head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="resource-type" content="document">
+    <meta name="distribution" content="global">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    
+    <title>Главная страница •
+        FreeTeam</title>
+
+    
+
+    <!--
+        phpBB style name: Absolution
+        Based on style:   prosilver (this is the default phpBB3 style)
+        Modified by: Christian Bullock ( http://www.ChristianBullock.com/ )
+
+    -->
+
+    <script async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript">
+        // <![CDATA[
+        var jump_page = 'Введите номер страницы, на которую хотите перейти:';
+        var on_page = '';
+        var per_page = '';
+        var base_url = '';
+        var style_cookie = 'phpBBstyle';
+        var style_cookie_settings = '; path=/; domain=.freeteamclub.com; secure';
+        var onload_functions = new Array();
+        var onunload_functions = new Array();
+
+        <!--IF S_USER_PM_POPUP and S_NEW_PM-->
+        //var url = './ucp.php?i=pm&amp;mode=popup';
+        //window.open(url.replace(/&amp;/g, '&'), '_phpbbprivmsg', 'height=225,resizable=yes,scrollbars=yes, width=400');
+        <!--ENDIF-->
+
+        /**
+         * Find a member
+         */
+        function find_username(url) {
+            popup(url, 760, 570, '_usersearch');
+            return false;
+        }
+
+        /**
+         * New function for handling multiple calls to window.onload and window.unload by pentapenguin
+         */
+        window.onload = function () {
+            for (var i = 0; i < onload_functions.length; i++) {
+                eval(onload_functions[i]);
+            }
+        };
+
+        window.onunload = function () {
+            for (var i = 0; i < onunload_functions.length; i++) {
+                eval(onunload_functions[i]);
+            }
+        };
+
+        // ]]>
+    </script>
+
+    <script type="text/javascript" src="./styles/absolution/template/forum_fn.js"></script>
+
+    <script type="text/javascript" src="./styles/absolution/template/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="./styles/absolution/template/jquery.tipsy.js"></script>
+    <script type="text/javascript" src="./styles/absolution/template/jquery.hoverIntent.minified.js"></script>
+    <script type="text/javascript" src="./styles/absolution/template/jquery.cookie.js"></script>
+    <script type="text/javascript" src="./styles/absolution/template/jquery.collapse.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $([window, document]).blur(function () {
+                $('ul.drop').css({display: 'none'});
+            });
+            $("#nav ul li").hoverIntent(function () {
+                $(this).find("ul").slideDown();
+            }, function () {
+                $(this).find("ul").slideUp();
+            });
+        });
+        function blur_form() {
+            $('.username, .password').each(function () {
+                $(this).bind('focus blur', function () {
+                    $(this).toggleClass('blur_input_efect');
+                });
+            });
+        }
+        $(document).ready(function () {
+            blur_form();
+        });
+    </script>
+    <link href="./styles/absolution/theme/print.css" rel="stylesheet" type="text/css" media="print" title="printonly">
+    <link href="./style.php?id=8&amp;lang=ru" rel="stylesheet" type="text/css">
+
+    <link href="./styles/absolution/theme/normal.css" rel="stylesheet" type="text/css" title="A">
+    <link href="./styles/absolution/theme/medium.css" rel="alternate stylesheet" type="text/css" title="A+">
+    <link href="./styles/absolution/theme/large.css" rel="alternate stylesheet" type="text/css" title="A++">
+
+    
+
+    <!--[if IE]>
+    <link rel="stylesheet" type="text/css" href="./styles/absolution/theme/ie.css"/>
+    <![endif]-->
+
+
+    <style>
+        #wrap {
+            max-width: 1265px;
+            min-width: 480px !important;
+            width: auto !important
+        }
+
+        #header {
+            margin-top: 0;
+        }
+
+        .main_menu_forum::after {
+            background-color: #394264;
+            content: "";
+            height: 100%;
+            left: -100%;
+            position: absolute;
+            top: 0;
+            width: 300%;
+            z-index: -1;
+        }
+
+        #header_menu {
+            width: 100%;
+            z-index: 2;
+            top: 0 !important;
+        }
+
+        .noise {
+            overflow: hidden;
+        }
+
+        #header_menu ul li a img {
+            margin-right: 12px;
+        }
+
+        #header_menu ul li a {
+            padding: 20px 22px 17px;
+            font-size: 19px;
+            letter-spacing: 0;
+        }
+
+        .user_menu .user_login {
+            min-width: auto;
+            padding: 12px 18px 30px 0;
+        }
+
+        #nav ul li ul.drop {
+            left: -132px;
+            top: 25px;
+        }
+
+        .top_center {
+            margin-top: 40px;
+            padding-right: 24px;
+        }
+
+        .reklama {
+            background-color: #394264;
+            float: left;
+            height: 80px;
+            margin-top: 30px;
+            overflow: hidden;
+            width: 685px;
+        }
+
+        .reklama a {
+            display: block;
+        }
+
+        .reklama a img {
+            width: 100%;
+        }
+
+        .float-left:first-child {
+            height: 148px;
+            text-align: center;
+            width: 225px;
+        }
+
+        .float-left:first-child > a {
+            display: block;
+            margin-top: 15px;
+        }
+
+        .float-left:first-child > a img {
+            height: 117px;
+            width: 135px;
+        }
+
+        .container {
+            width: 1265px;
+            margin: 0 auto;
+        }
+
+        .user_icon_bg {
+            width: 0;
+            height: 0;
+            background: none;
+        }
+
+        .user_menu li a.for_user_icon, .user_menu li .user_icon.float-right {
+            border: 2px solid #50597b;
+            border-radius: 50%;
+            display: block;
+            height: 58px;
+            overflow: hidden;
+            padding: 0;
+            width: 58px;
+            top: -10px;
+        }
+
+        .user_menu li a.for_user_icon img.user_icon {
+            border: medium none;
+            top: 0;
+        }
+
+        .user_icon {
+            width: 100%;
+            height: 100%;
+            top: 0;
+        }
+
+        .user_menu .icon_login {
+            padding-right: 20px;
+            width: 58px;
+            height: 58px;
+        }
+
+        .user_menu li a {
+            font-weight: bold;
+        }
+
+        #nav ul li form ul.drop {
+            left: -113px;
+            top: 25px;
+        }
+
+        #nav ul li form ul.drop p {
+            margin-top: 10px !important;
+        }
+
+        #nav ul li ul.drop .drop_menu_row {
+            background: rgba(0, 0, 0, 0) url("./styles/absolution/theme/images/menu_row.png") no-repeat scroll 165px 50%;
+            height: 16px;
+            position: absolute;
+           
+        }
+
+        #nav ul li:hover ul.drop.drop {
+            display: block !important;
+            height: auto !important;
+            padding: 5px 5px !important;
+            top: 30px !important;
+        }
+
+        #nav ul li .drop_menu_wrap > .float-right > ul.drop li {
+            height: 40px;
+        }
+
+        #nav ul li .drop_menu_wrap > .float-right > ul.drop li a {
+            padding: 0 5px;
+            line-height: 40px;
+        }
+
+        .new_mess.new_mess {
+            left: 40px !important;
+            bottom: 40px !important;
+        }
+    </style>
+    
+</head>
+
+<body id="phpbb" class="section-index ltr js">
+<script type="text/javascript">$("body").removeClass("nojs").addClass("js");</script>
+
+<div class="noise">
+    <div id="wrap" style="width: 1150px;">
+
+        <a id="top" accesskey="t"></a>
+
+        <div id="header">
+            <div class="float-left">
+                
+                <a href="/"><img src="./styles/absolution/imageset/logo.png" width="168" height="146" alt="" title=""></a>
+                
+                <!--<p class="skiplink"><a href="#start_here">Пропустить</a></p>-->
+            </div>
+            <div class="reklama">
+                <a href="/about">
+                    <img src="/images/new-design/baner.jpg" alt="baner">
+                </a>
+            </div>
+            <div class="float-right top_center">
+                <div id="nav">
+                    <ul class="user_menu">
+                        
+                        <li class="icon_login float-right">
+                            
+                            <div class="user_icon_bg float-right"></div>
+                            <img class="user_icon float-right" src="./styles/absolution/theme/images/not_login_icon.png" alt="">
+                            
+                        </li>
+                        <li class="user_login float-right">
+                            
+                            <h4>Вход</h4>
+                            <div style="clear: both;"></div>
+                            <div class="drop_menu_wrap">
+                                <div class="float-right">
+                                    <form action="./ucp.php?mode=login" method="post">
+                                        <ul class="drop">
+                                            <li class="drop_menu_row"></li>
+                                            <li><p>Добро пожаловать</p></li>
+                                            <li><input class="username inputbox autowidth" type="text" value="" size="25" name="username" tabindex="1"></li>
+                                            <li><input class="password inputbox autowidth" type="password" size="25" name="password" tabindex="2"></li>
+                                            <li><input type="submit" class="button login" value="ВОЙТИ" tabindex="5" name="login"></li>
+                                            
+                                            <li>
+                                                <input id="remember_me" class="before" type="checkbox" name="autologin" tabindex="3" hidden="">
+                                                <label class="remember_me" for="remember_me">Запомнить меня</label>
+                                            </li>
+                                            
+                                            <li><a class="login" style="float: left !important;" href="/register?view=reset">Забыли пароль?</a>
+                                                <a class="float-right login" href="/register">Регистрация</a>
+                                            </li>
+                                            
+                                        </ul>
+                                        
+                                    </form>
+                                </div>
+                            </div>
+                            
+                        </li>
+                        
+                    </ul>
+                </div>
+                <div style="clear: right;"></div>
+            </div>
+            <div style="clear: both;"></div>
+            <div id="header_menu" class="main_menu_forum">
+                <ul>
+                    
+                    <li class="">
+                        <a href="/trainings"><img src="./styles/absolution/theme/images/calendar_tr.png" width="24" height="24" alt="">Тренировки</a>
+                    </li>
+                    <li class="">
+                        <a href="/funds"><img src="./styles/absolution/theme/images/usd.png" width="24" height="24" alt="">Фонды</a>
+                    </li>
+                    <li class="">
+                        <a href="/blog"><img src="./styles/absolution/theme/images/blog.png" width="24" height="24" alt="">Блог</a>
+                    </li>
+                    <li class="">
+                        <a href="/forum/"><img src="./styles/absolution/theme/images/forum.png" width="35" height="24" alt="">Форум</a>
+                    </li>
+                    <li class="">
+                        <a href="/about"><img src="./styles/absolution/theme/images/about.png" width="24" height="24" alt="">Карьера</a>
+                    </li>
+                    <li class="">
+                        <a href="/shop"><img src="./styles/absolution/theme/images/liga_free.png" width="25" height="24" alt="">Магазин</a>
+                    </li>
+                    
+                    <li class="">
+                        <a href="/register" class="uk-text-danger">Присоединиться</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div><!-- /header -->
+
+        <a id="start_here"></a>
+        <div id="page-body">
+            <div class="contentpadding">
+
+                <div class="forumlist">
+    
+<div class="catglow">
+    <div class="cathead-m">
+        <div class="cathead-r">
+            <div class="cathead-l">
+                <a href="./viewforum.php?f=164">Наши новости</a>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="trigger active"><a href="#"></a></div>
+    <div class="collapsethis">
+        <table class="cat">
+            
+            <tbody><tr>
+                <td class="forumicon"><img src="./styles/absolution/imageset/forum_read.gif" width="38" height="38" alt="Нет непрочитанных сообщений" title="Нет непрочитанных сообщений"></td>
+                <td class="forumdetails">
+                    
+                    <a href="./viewforum.php?f=165" class="forumtitle">Новости проектов</a><br>
+                    <span class="forum-descriptions"></span>
+
+                    
+                </td>
+                
+                <td class="forumlastpost">
+                    
+                    Последнее сообщение  <a href="./memberlist.php?mode=viewprofile&amp;u=51118">000deathman</a>
+                    
+                    <a href="./viewtopic.php?f=165&amp;p=139396#p139396"><img src="./styles/absolution/imageset/icon_topic_latest.gif" width="11" height="9" alt="Перейти к последнему сообщению" title="Перейти к последнему сообщению"></a>
+                    <br><span class="fade">27.дек.2019, 19:27</span>
+                    
+                </td>
+                <td class="forumtopics">
+                    <div class="statbubble"><span>42</span><br>Темы</div>
+                </td>
+                <td class="forumposts">
+                    <div class="statbubble"><span>2639</span><br>Сообщения</div>
+                </td>
+                
+            </tr>
+            
+    </tbody></table>
+</div>
+</div>
+<br><br>
+
+<div class="catglow">
+    <div class="cathead-m">
+        <div class="cathead-r">
+            <div class="cathead-l">
+                <a href="./viewforum.php?f=198">Наши форумы</a>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="trigger active"><a href="#"></a></div>
+    <div class="collapsethis">
+        <table class="cat">
+            
+            <tbody><tr>
+                <td class="forumicon"><img src="./styles/absolution/imageset/forum_read.gif" width="38" height="38" alt="Нет непрочитанных сообщений" title="Нет непрочитанных сообщений"></td>
+                <td class="forumdetails">
+                    
+                    <a href="./viewforum.php?f=335" class="forumtitle">Дневники обучения МТТ</a><br>
+                    <span class="forum-descriptions">Дневники обучения участников проекта FreeTeam</span>
+
+                    
+                    <span class="forummods">
+                    	<img src="./styles/absolution/theme/images/tree.gif" width="19" height="12" alt="">
+                    	<strong>Модераторы:</strong> <a href="./memberlist.php?mode=viewprofile&amp;u=46922">Excellent233</a>, <a href="./memberlist.php?mode=group&amp;g=25288">NoobSupport</a>
+                    </span>
+                    
+                </td>
+                
+                <td class="forumlastpost">
+                    
+                    Последнее сообщение  <a href="./memberlist.php?mode=viewprofile&amp;u=47390">Le_Blem11</a>
+                    
+                    <a href="./viewtopic.php?f=335&amp;p=140058#p140058"><img src="./styles/absolution/imageset/icon_topic_latest.gif" width="11" height="9" alt="Перейти к последнему сообщению" title="Перейти к последнему сообщению"></a>
+                    <br><span class="fade">Сегодня, 16:56</span>
+                    
+                </td>
+                <td class="forumtopics">
+                    <div class="statbubble"><span>488</span><br>Темы</div>
+                </td>
+                <td class="forumposts">
+                    <div class="statbubble"><span>18935</span><br>Сообщения</div>
+                </td>
+                
+            </tr>
+            
+            <tr>
+                <td class="forumicon"><img src="./styles/absolution/imageset/forum_read.gif" width="38" height="38" alt="Нет непрочитанных сообщений" title="Нет непрочитанных сообщений"></td>
+                <td class="forumdetails">
+                    
+                    <a href="./viewforum.php?f=336" class="forumtitle">Дневники обучения МТСНГ</a><br>
+                    <span class="forum-descriptions">Дневники обучения участников проекта FreeTeam</span>
+
+                    
+                    <span class="forummods">
+                    	<img src="./styles/absolution/theme/images/tree.gif" width="19" height="12" alt="">
+                    	<strong>Модератор:</strong> <a href="./memberlist.php?mode=group&amp;g=25288">NoobSupport</a>
+                    </span>
+                    
+                </td>
+                
+                <td class="forumlastpost">
+                    
+                    Последнее сообщение  <a href="./memberlist.php?mode=viewprofile&amp;u=50353">tinimur</a>
+                    
+                    <a href="./viewtopic.php?f=336&amp;p=140056#p140056"><img src="./styles/absolution/imageset/icon_topic_latest.gif" width="11" height="9" alt="Перейти к последнему сообщению" title="Перейти к последнему сообщению"></a>
+                    <br><span class="fade">Сегодня, 16:18</span>
+                    
+                </td>
+                <td class="forumtopics">
+                    <div class="statbubble"><span>540</span><br>Темы</div>
+                </td>
+                <td class="forumposts">
+                    <div class="statbubble"><span>16264</span><br>Сообщения</div>
+                </td>
+                
+            </tr>
+            
+            <tr>
+                <td class="forumicon"><img src="./styles/absolution/imageset/forum_read.gif" width="38" height="38" alt="Нет непрочитанных сообщений" title="Нет непрочитанных сообщений"></td>
+                <td class="forumdetails">
+                    
+                    <a href="./viewforum.php?f=514" class="forumtitle">Дневники обучения Spin &amp; Go</a><br>
+                    <span class="forum-descriptions">Дневники обучения участников проекта FreeTeam</span>
+
+                    
+                    <span class="forummods">
+                    	<img src="./styles/absolution/theme/images/tree.gif" width="19" height="12" alt="">
+                    	<strong>Модераторы:</strong> <a href="./memberlist.php?mode=viewprofile&amp;u=46070">hausman314</a>, <a href="./memberlist.php?mode=group&amp;g=25288">NoobSupport</a>
+                    </span>
+                    
+                </td>
+                
+                <td class="forumlastpost">
+                    
+                    Последнее сообщение  <a href="./memberlist.php?mode=viewprofile&amp;u=50003">nikitasuslov666</a>
+                    
+                    <a href="./viewtopic.php?f=514&amp;p=129243#p129243"><img src="./styles/absolution/imageset/icon_topic_latest.gif" width="11" height="9" alt="Перейти к последнему сообщению" title="Перейти к последнему сообщению"></a>
+                    <br><span class="fade">13.мар.2019, 02:40</span>
+                    
+                </td>
+                <td class="forumtopics">
+                    <div class="statbubble"><span>17</span><br>Темы</div>
+                </td>
+                <td class="forumposts">
+                    <div class="statbubble"><span>317</span><br>Сообщения</div>
+                </td>
+                
+            </tr>
+            
+            <tr>
+                <td class="forumicon"><img src="./styles/absolution/imageset/forum_read.gif" width="38" height="38" alt="Нет непрочитанных сообщений" title="Нет непрочитанных сообщений"></td>
+                <td class="forumdetails">
+                    
+                    <a href="./viewforum.php?f=304" class="forumtitle">Кэш-игра NL Holdem</a><br>
+                    <span class="forum-descriptions">Дневники обучения учеников кэш игры</span>
+
+                    
+                    <span class="forummods">
+                    	<img src="./styles/absolution/theme/images/tree.gif" width="19" height="12" alt="">
+                    	<strong>Модераторы:</strong> <a href="./memberlist.php?mode=viewprofile&amp;u=46094">dcczzi</a>, <a href="./memberlist.php?mode=group&amp;g=25288">NoobSupport</a>
+                    </span>
+                    
+                </td>
+                
+                <td class="forumlastpost">
+                    
+                    Последнее сообщение  <a href="./memberlist.php?mode=viewprofile&amp;u=51017">83kg</a>
+                    
+                    <a href="./viewtopic.php?f=304&amp;p=139554#p139554"><img src="./styles/absolution/imageset/icon_topic_latest.gif" width="11" height="9" alt="Перейти к последнему сообщению" title="Перейти к последнему сообщению"></a>
+                    <br><span class="fade">07.янв.2020, 14:26</span>
+                    
+                </td>
+                <td class="forumtopics">
+                    <div class="statbubble"><span>227</span><br>Темы</div>
+                </td>
+                <td class="forumposts">
+                    <div class="statbubble"><span>10055</span><br>Сообщения</div>
+                </td>
+                
+            </tr>
+            
+            <tr>
+                <td class="forumicon"><img src="./styles/absolution/imageset/forum_read.gif" width="38" height="38" alt="Нет непрочитанных сообщений" title="Нет непрочитанных сообщений"></td>
+                <td class="forumdetails">
+                    
+                    <a href="./viewforum.php?f=517" class="forumtitle">Дневники обучения CAP кэш-игры</a><br>
+                    <span class="forum-descriptions">Дневники обучения учеников CAP кэш игры</span>
+
+                    
+                    <span class="forummods">
+                    	<img src="./styles/absolution/theme/images/tree.gif" width="19" height="12" alt="">
+                    	<strong>Модератор:</strong> <a href="./memberlist.php?mode=viewprofile&amp;u=47715">SantaZzz</a>
+                    </span>
+                    
+                </td>
+                
+                <td class="forumlastpost">
+                    
+                    Последнее сообщение  <a href="./memberlist.php?mode=viewprofile&amp;u=51528">Justin</a>
+                    
+                    <a href="./viewtopic.php?f=517&amp;p=139460#p139460"><img src="./styles/absolution/imageset/icon_topic_latest.gif" width="11" height="9" alt="Перейти к последнему сообщению" title="Перейти к последнему сообщению"></a>
+                    <br><span class="fade">31.дек.2019, 08:48</span>
+                    
+                </td>
+                <td class="forumtopics">
+                    <div class="statbubble"><span>11</span><br>Темы</div>
+                </td>
+                <td class="forumposts">
+                    <div class="statbubble"><span>721</span><br>Сообщения</div>
+                </td>
+                
+            </tr>
+            
+            <tr>
+                <td class="forumicon"><img src="./styles/absolution/imageset/forum_read.gif" width="38" height="38" alt="Нет непрочитанных сообщений" title="Нет непрочитанных сообщений"></td>
+                <td class="forumdetails">
+                    
+                    <a href="./viewforum.php?f=518" class="forumtitle">Дневники обучения Кэш НЛ25+</a><br>
+                    <span class="forum-descriptions">Дневники обучения игроков Кэш НЛ25+</span>
+
+                    
+                </td>
+                
+                <td class="forumlastpost">
+                    
+                    Последнее сообщение  <a href="./memberlist.php?mode=viewprofile&amp;u=51372">Trevon</a>
+                    
+                    <a href="./viewtopic.php?f=518&amp;p=137777#p137777"><img src="./styles/absolution/imageset/icon_topic_latest.gif" width="11" height="9" alt="Перейти к последнему сообщению" title="Перейти к последнему сообщению"></a>
+                    <br><span class="fade">16.окт.2019, 04:05</span>
+                    
+                </td>
+                <td class="forumtopics">
+                    <div class="statbubble"><span>6</span><br>Темы</div>
+                </td>
+                <td class="forumposts">
+                    <div class="statbubble"><span>409</span><br>Сообщения</div>
+                </td>
+                
+            </tr>
+            
+            <tr>
+                <td class="forumicon"><img src="./styles/absolution/imageset/forum_read.gif" width="38" height="38" alt="Нет непрочитанных сообщений" title="Нет непрочитанных сообщений"></td>
+                <td class="forumdetails">
+                    
+                    <a href="./viewforum.php?f=162" class="forumtitle">Дневники обучения для новичков</a><br>
+                    <span class="forum-descriptions">Дневники обучения новых пользователей форума.</span>
+
+                    
+                    <span class="forummods">
+                    	<img src="./styles/absolution/theme/images/tree.gif" width="19" height="12" alt="">
+                    	<strong>Модератор:</strong> <a href="./memberlist.php?mode=group&amp;g=25288">NoobSupport</a>
+                    </span>
+                    
+                </td>
+                
+                <td class="forumlastpost">
+                    
+                    Последнее сообщение  <a href="./memberlist.php?mode=viewprofile&amp;u=50205">pokerdimon</a>
+                    
+                    <a href="./viewtopic.php?f=162&amp;p=140060#p140060"><img src="./styles/absolution/imageset/icon_topic_latest.gif" width="11" height="9" alt="Перейти к последнему сообщению" title="Перейти к последнему сообщению"></a>
+                    <br><span class="fade">35 минут назад</span>
+                    
+                </td>
+                <td class="forumtopics">
+                    <div class="statbubble"><span>875</span><br>Темы</div>
+                </td>
+                <td class="forumposts">
+                    <div class="statbubble"><span>10734</span><br>Сообщения</div>
+                </td>
+                
+            </tr>
+            
+            <tr>
+                <td class="forumicon"><img src="./styles/absolution/imageset/forum_read_subforum.gif" width="38" height="38" alt="Нет непрочитанных сообщений" title="Нет непрочитанных сообщений"></td>
+                <td class="forumdetails">
+                    
+                    <a href="./viewforum.php?f=353" class="forumtitle">Дневники обучения "Лига Фриролов"</a><br>
+                    <span class="forum-descriptions">Дневники обучения участников "Лиги Фриролов"</span>
+
+                    
+                    <span class="forummods">
+                    	&nbsp;&nbsp;&nbsp;&nbsp;<img src="./styles/absolution/theme/images/tree.gif" width="19" height="12" alt="">
+                    	<strong>Модератор:</strong> <a href="./memberlist.php?mode=group&amp;g=25288">NoobSupport</a>
+                    </span>
+                    
+                </td>
+                
+                <td class="forumlastpost">
+                    
+                    Последнее сообщение  <a href="./memberlist.php?mode=viewprofile&amp;u=47077">chornui</a>
+                    
+                    <a href="./viewtopic.php?f=353&amp;p=133247#p133247"><img src="./styles/absolution/imageset/icon_topic_latest.gif" width="11" height="9" alt="Перейти к последнему сообщению" title="Перейти к последнему сообщению"></a>
+                    <br><span class="fade">27.июн.2019, 09:15</span>
+                    
+                </td>
+                <td class="forumtopics">
+                    <div class="statbubble"><span>63</span><br>Темы</div>
+                </td>
+                <td class="forumposts">
+                    <div class="statbubble"><span>1237</span><br>Сообщения</div>
+                </td>
+                
+            </tr>
+            
+            <tr>
+                <td class="forumicon"><img src="./styles/absolution/imageset/forum_read.gif" width="38" height="38" alt="Нет непрочитанных сообщений" title="Нет непрочитанных сообщений"></td>
+                <td class="forumdetails">
+                    
+                    <a href="./viewforum.php?f=197" class="forumtitle">Общение на отвлеченные темы</a><br>
+                    <span class="forum-descriptions"></span>
+
+                    
+                    <span class="forummods">
+                    	<img src="./styles/absolution/theme/images/tree.gif" width="19" height="12" alt="">
+                    	<strong>Модератор:</strong> <a href="./memberlist.php?mode=group&amp;g=25288">NoobSupport</a>
+                    </span>
+                    
+                </td>
+                
+                <td class="forumlastpost">
+                    
+                    Последнее сообщение  <a href="./memberlist.php?mode=viewprofile&amp;u=51345">golubeva24971</a>
+                    
+                    <a href="./viewtopic.php?f=197&amp;p=139815#p139815"><img src="./styles/absolution/imageset/icon_topic_latest.gif" width="11" height="9" alt="Перейти к последнему сообщению" title="Перейти к последнему сообщению"></a>
+                    <br><span class="fade">18.янв.2020, 08:23</span>
+                    
+                </td>
+                <td class="forumtopics">
+                    <div class="statbubble"><span>27</span><br>Темы</div>
+                </td>
+                <td class="forumposts">
+                    <div class="statbubble"><span>348</span><br>Сообщения</div>
+                </td>
+                
+            </tr>
+            
+    </tbody></table>
+</div>
+</div>
+<br><br>
+
+<div class="catglow">
+    <div class="cathead-m">
+        <div class="cathead-r">
+            <div class="cathead-l">
+                <a href="./viewforum.php?f=525">КриптоФорум</a>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="trigger active"><a href="#"></a></div>
+    <div class="collapsethis">
+        <table class="cat">
+            
+            <tbody><tr>
+                <td class="forumicon"><img src="./styles/absolution/imageset/forum_read.gif" width="38" height="38" alt="Нет непрочитанных сообщений" title="Нет непрочитанных сообщений"></td>
+                <td class="forumdetails">
+                    
+                    <a href="./viewforum.php?f=526" class="forumtitle">ICO</a><br>
+                    <span class="forum-descriptions"></span>
+
+                    
+                </td>
+                
+                <td class="forumlastpost">
+                    
+                    Последнее сообщение  <a href="./memberlist.php?mode=viewprofile&amp;u=50973">OPR</a>
+                    
+                    <a href="./viewtopic.php?f=526&amp;p=131379#p131379"><img src="./styles/absolution/imageset/icon_topic_latest.gif" width="11" height="9" alt="Перейти к последнему сообщению" title="Перейти к последнему сообщению"></a>
+                    <br><span class="fade">11.май.2019, 14:47</span>
+                    
+                </td>
+                <td class="forumtopics">
+                    <div class="statbubble"><span>4</span><br>Темы</div>
+                </td>
+                <td class="forumposts">
+                    <div class="statbubble"><span>167</span><br>Сообщения</div>
+                </td>
+                
+            </tr>
+            
+    </tbody></table>
+</div>
+</div>
+<br><br>
+
+<div class="catglow">
+    <div class="cathead-m">
+        <div class="cathead-r">
+            <div class="cathead-l">
+                <a href="./viewforum.php?f=153">Околопокерные и не покерные проекты</a>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="trigger active"><a href="#"></a></div>
+    <div class="collapsethis">
+        <table class="cat">
+            
+            <tbody><tr>
+                <td class="forumicon"><img src="./styles/absolution/imageset/forum_read.gif" width="38" height="38" alt="Нет непрочитанных сообщений" title="Нет непрочитанных сообщений"></td>
+                <td class="forumdetails">
+                    
+                    <a href="./viewforum.php?f=92" class="forumtitle">Развитие вне покера</a><br>
+                    <span class="forum-descriptions">Тут будут различные материалы, книги статьи ссылки, которые полезны для образования и всестороннего развития личности.  Не покером единым.</span>
+
+                    
+                </td>
+                
+                <td class="forumlastpost">
+                    
+                    Последнее сообщение  <a href="./memberlist.php?mode=viewprofile&amp;u=46688">ValdsCritery</a>
+                    
+                    <a href="./viewtopic.php?f=92&amp;p=105672#p105672"><img src="./styles/absolution/imageset/icon_topic_latest.gif" width="11" height="9" alt="Перейти к последнему сообщению" title="Перейти к последнему сообщению"></a>
+                    <br><span class="fade">10.янв.2017, 17:20</span>
+                    
+                </td>
+                <td class="forumtopics">
+                    <div class="statbubble"><span>18</span><br>Темы</div>
+                </td>
+                <td class="forumposts">
+                    <div class="statbubble"><span>50</span><br>Сообщения</div>
+                </td>
+                
+            </tr>
+            
+            <tr>
+                <td class="forumicon"><img src="./styles/absolution/imageset/forum_read.gif" width="38" height="38" alt="Нет непрочитанных сообщений" title="Нет непрочитанных сообщений"></td>
+                <td class="forumdetails">
+                    
+                    <a href="./viewforum.php?f=523" class="forumtitle">Околопокерные дневники</a><br>
+                    <span class="forum-descriptions"></span>
+
+                    
+                </td>
+                
+                <td class="forumlastpost">
+                    
+                    Последнее сообщение  <a href="./memberlist.php?mode=viewprofile&amp;u=49212">HHmai1erSupport</a>
+                    
+                    <a href="./viewtopic.php?f=523&amp;p=128894#p128894"><img src="./styles/absolution/imageset/icon_topic_latest.gif" width="11" height="9" alt="Перейти к последнему сообщению" title="Перейти к последнему сообщению"></a>
+                    <br><span class="fade">04.мар.2019, 23:03</span>
+                    
+                </td>
+                <td class="forumtopics">
+                    <div class="statbubble"><span>1</span><br>Темы</div>
+                </td>
+                <td class="forumposts">
+                    <div class="statbubble"><span>3</span><br>Сообщения</div>
+                </td>
+                
+            </tr>
+            
+    </tbody></table>
+</div>
+</div>
+<br><br>
+
+<div class="catglow">
+    <div class="cathead-m">
+        <div class="cathead-r">
+            <div class="cathead-l">
+                <a href="./viewforum.php?f=67">Разборы рук и обучение</a>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="trigger active"><a href="#"></a></div>
+    <div class="collapsethis">
+        <table class="cat">
+            
+            <tbody><tr>
+                <td class="forumicon"><img src="./styles/absolution/imageset/forum_read.gif" width="38" height="38" alt="Нет непрочитанных сообщений" title="Нет непрочитанных сообщений"></td>
+                <td class="forumdetails">
+                    
+                    <a href="./viewforum.php?f=85" class="forumtitle">Полезные статьи и ссылки</a><br>
+                    <span class="forum-descriptions"></span>
+
+                    
+                </td>
+                
+                <td class="forumlastpost">
+                    
+                    Последнее сообщение  <a href="./memberlist.php?mode=viewprofile&amp;u=51066">viking287</a>
+                    
+                    <a href="./viewtopic.php?f=85&amp;p=135110#p135110"><img src="./styles/absolution/imageset/icon_topic_latest.gif" width="11" height="9" alt="Перейти к последнему сообщению" title="Перейти к последнему сообщению"></a>
+                    <br><span class="fade">28.июл.2019, 18:45</span>
+                    
+                </td>
+                <td class="forumtopics">
+                    <div class="statbubble"><span>34</span><br>Темы</div>
+                </td>
+                <td class="forumposts">
+                    <div class="statbubble"><span>196</span><br>Сообщения</div>
+                </td>
+                
+            </tr>
+            
+            <tr>
+                <td class="forumicon"><img src="./styles/absolution/imageset/forum_read_subforum.gif" width="38" height="38" alt="Нет непрочитанных сообщений" title="Нет непрочитанных сообщений"></td>
+                <td class="forumdetails">
+                    
+                    <a href="./viewforum.php?f=192" class="forumtitle">MTT - КМС+ - от 22USD</a><br>
+                    <span class="forum-descriptions"></span>
+
+                    
+                </td>
+                
+                <td class="forumlastpost">
+                    
+                    Последнее сообщение  <a href="./memberlist.php?mode=viewprofile&amp;u=130">Skazo4nik777</a>
+                    
+                    <a href="./viewtopic.php?f=192&amp;p=105985#p105985"><img src="./styles/absolution/imageset/icon_topic_latest.gif" width="11" height="9" alt="Перейти к последнему сообщению" title="Перейти к последнему сообщению"></a>
+                    <br><span class="fade">18.янв.2017, 12:09</span>
+                    
+                </td>
+                <td class="forumtopics">
+                    <div class="statbubble"><span>602</span><br>Темы</div>
+                </td>
+                <td class="forumposts">
+                    <div class="statbubble"><span>2725</span><br>Сообщения</div>
+                </td>
+                
+            </tr>
+            
+            <tr>
+                <td class="forumicon"><img src="./styles/absolution/imageset/forum_read_subforum.gif" width="38" height="38" alt="Нет непрочитанных сообщений" title="Нет непрочитанных сообщений"></td>
+                <td class="forumdetails">
+                    
+                    <a href="./viewforum.php?f=193" class="forumtitle">MTT - I-разряд - до 22USD</a><br>
+                    <span class="forum-descriptions"></span>
+
+                    
+                </td>
+                
+                <td class="forumlastpost">
+                    
+                    Последнее сообщение  <a href="./memberlist.php?mode=viewprofile&amp;u=130">Skazo4nik777</a>
+                    
+                    <a href="./viewtopic.php?f=193&amp;p=105987#p105987"><img src="./styles/absolution/imageset/icon_topic_latest.gif" width="11" height="9" alt="Перейти к последнему сообщению" title="Перейти к последнему сообщению"></a>
+                    <br><span class="fade">18.янв.2017, 12:13</span>
+                    
+                </td>
+                <td class="forumtopics">
+                    <div class="statbubble"><span>551</span><br>Темы</div>
+                </td>
+                <td class="forumposts">
+                    <div class="statbubble"><span>1840</span><br>Сообщения</div>
+                </td>
+                
+            </tr>
+            
+            <tr>
+                <td class="forumicon"><img src="./styles/absolution/imageset/forum_read_subforum.gif" width="38" height="38" alt="Нет непрочитанных сообщений" title="Нет непрочитанных сообщений"></td>
+                <td class="forumdetails">
+                    
+                    <a href="./viewforum.php?f=295" class="forumtitle">МТСНГ - II-разряд - до 7USD</a><br>
+                    <span class="forum-descriptions"></span>
+
+                    
+                </td>
+                
+                <td class="forumlastpost">
+                    
+                    Последнее сообщение  <a href="./memberlist.php?mode=viewprofile&amp;u=48076">abig89</a>
+                    
+                    <a href="./viewtopic.php?f=295&amp;p=119259#p119259"><img src="./styles/absolution/imageset/icon_topic_latest.gif" width="11" height="9" alt="Перейти к последнему сообщению" title="Перейти к последнему сообщению"></a>
+                    <br><span class="fade">05.янв.2018, 04:05</span>
+                    
+                </td>
+                <td class="forumtopics">
+                    <div class="statbubble"><span>614</span><br>Темы</div>
+                </td>
+                <td class="forumposts">
+                    <div class="statbubble"><span>2240</span><br>Сообщения</div>
+                </td>
+                
+            </tr>
+            
+            <tr>
+                <td class="forumicon"><img src="./styles/absolution/imageset/forum_read.gif" width="38" height="38" alt="Нет непрочитанных сообщений" title="Нет непрочитанных сообщений"></td>
+                <td class="forumdetails">
+                    
+                    <a href="./viewforum.php?f=294" class="forumtitle">МТСНГ - III-разряд - до 3,5USD</a><br>
+                    <span class="forum-descriptions"></span>
+
+                    
+                </td>
+                
+                <td class="forumlastpost">
+                    
+                    Последнее сообщение  <a href="./memberlist.php?mode=viewprofile&amp;u=49924">eurolux</a>
+                    
+                    <a href="./viewtopic.php?f=294&amp;p=136501#p136501"><img src="./styles/absolution/imageset/icon_topic_latest.gif" width="11" height="9" alt="Перейти к последнему сообщению" title="Перейти к последнему сообщению"></a>
+                    <br><span class="fade">08.сен.2019, 22:18</span>
+                    
+                </td>
+                <td class="forumtopics">
+                    <div class="statbubble"><span>998</span><br>Темы</div>
+                </td>
+                <td class="forumposts">
+                    <div class="statbubble"><span>3875</span><br>Сообщения</div>
+                </td>
+                
+            </tr>
+            
+            <tr>
+                <td class="forumicon"><img src="./styles/absolution/imageset/forum_read.gif" width="38" height="38" alt="Нет непрочитанных сообщений" title="Нет непрочитанных сообщений"></td>
+                <td class="forumdetails">
+                    
+                    <a href="./viewforum.php?f=484" class="forumtitle">МТСНГ - Новичок - 1-1,5USD</a><br>
+                    <span class="forum-descriptions"></span>
+
+                    
+                </td>
+                
+                <td class="forumlastpost">
+                    
+                    Последнее сообщение  <a href="./memberlist.php?mode=viewprofile&amp;u=49924">eurolux</a>
+                    
+                    <a href="./viewtopic.php?f=484&amp;p=139053#p139053"><img src="./styles/absolution/imageset/icon_topic_latest.gif" width="11" height="9" alt="Перейти к последнему сообщению" title="Перейти к последнему сообщению"></a>
+                    <br><span class="fade">10.дек.2019, 12:59</span>
+                    
+                </td>
+                <td class="forumtopics">
+                    <div class="statbubble"><span>548</span><br>Темы</div>
+                </td>
+                <td class="forumposts">
+                    <div class="statbubble"><span>1683</span><br>Сообщения</div>
+                </td>
+                
+            </tr>
+            
+            <tr>
+                <td class="forumicon"><img src="./styles/absolution/imageset/forum_read.gif" width="38" height="38" alt="Нет непрочитанных сообщений" title="Нет непрочитанных сообщений"></td>
+                <td class="forumdetails">
+                    
+                    <a href="./viewforum.php?f=337" class="forumtitle">Разбор рук от новичков</a><br>
+                    <span class="forum-descriptions"></span>
+
+                    
+                </td>
+                
+                <td class="forumlastpost">
+                    
+                    Последнее сообщение  <a href="./memberlist.php?mode=viewprofile&amp;u=51523">plussEV</a>
+                    
+                    <a href="./viewtopic.php?f=337&amp;p=140004#p140004"><img src="./styles/absolution/imageset/icon_topic_latest.gif" width="11" height="9" alt="Перейти к последнему сообщению" title="Перейти к последнему сообщению"></a>
+                    <br><span class="fade">27.янв.2020, 21:02</span>
+                    
+                </td>
+                <td class="forumtopics">
+                    <div class="statbubble"><span>1898</span><br>Темы</div>
+                </td>
+                <td class="forumposts">
+                    <div class="statbubble"><span>7717</span><br>Сообщения</div>
+                </td>
+                
+            </tr>
+            
+            <tr>
+                <td class="forumicon"><img src="./styles/absolution/imageset/forum_read.gif" width="38" height="38" alt="Нет непрочитанных сообщений" title="Нет непрочитанных сообщений"></td>
+                <td class="forumdetails">
+                    
+                    <a href="./viewforum.php?f=90" class="forumtitle">Кеш НЛ2-НЛ25</a><br>
+                    <span class="forum-descriptions"></span>
+
+                    
+                    <span class="forummods">
+                    	<img src="./styles/absolution/theme/images/tree.gif" width="19" height="12" alt="">
+                    	<strong>Модератор:</strong> <a href="./memberlist.php?mode=viewprofile&amp;u=46094">dcczzi</a>
+                    </span>
+                    
+                </td>
+                
+                <td class="forumlastpost">
+                    
+                    Последнее сообщение  <a href="./memberlist.php?mode=viewprofile&amp;u=50475">woldimon</a>
+                    
+                    <a href="./viewtopic.php?f=90&amp;p=127792#p127792"><img src="./styles/absolution/imageset/icon_topic_latest.gif" width="11" height="9" alt="Перейти к последнему сообщению" title="Перейти к последнему сообщению"></a>
+                    <br><span class="fade">08.фев.2019, 11:25</span>
+                    
+                </td>
+                <td class="forumtopics">
+                    <div class="statbubble"><span>692</span><br>Темы</div>
+                </td>
+                <td class="forumposts">
+                    <div class="statbubble"><span>3339</span><br>Сообщения</div>
+                </td>
+                
+            </tr>
+            
+            <tr>
+                <td class="forumicon"><img src="./styles/absolution/imageset/forum_read.gif" width="38" height="38" alt="Нет непрочитанных сообщений" title="Нет непрочитанных сообщений"></td>
+                <td class="forumdetails">
+                    
+                    <a href="./viewforum.php?f=519" class="forumtitle">Кэш НЛ25+</a><br>
+                    <span class="forum-descriptions"></span>
+
+                    
+                </td>
+                
+                <td class="forumlastpost">
+                    
+                    Последнее сообщение  <a href="./memberlist.php?mode=viewprofile&amp;u=47662">gosha789</a>
+                    
+                    <a href="./viewtopic.php?f=519&amp;p=110665#p110665"><img src="./styles/absolution/imageset/icon_topic_latest.gif" width="11" height="9" alt="Перейти к последнему сообщению" title="Перейти к последнему сообщению"></a>
+                    <br><span class="fade">16.апр.2017, 01:31</span>
+                    
+                </td>
+                <td class="forumtopics">
+                    <div class="statbubble"><span>2</span><br>Темы</div>
+                </td>
+                <td class="forumposts">
+                    <div class="statbubble"><span>4</span><br>Сообщения</div>
+                </td>
+                
+            </tr>
+            
+            <tr>
+                <td class="forumicon"><img src="./styles/absolution/imageset/forum_read.gif" width="38" height="38" alt="Нет непрочитанных сообщений" title="Нет непрочитанных сообщений"></td>
+                <td class="forumdetails">
+                    
+                    <a href="./viewforum.php?f=516" class="forumtitle">Spin&amp;Go-II-разряд до 15$</a><br>
+                    <span class="forum-descriptions"></span>
+
+                    
+                </td>
+                
+                <td class="forumlastpost">
+                    
+                    Последнее сообщение  <a href="./memberlist.php?mode=viewprofile&amp;u=47501">parol1000</a>
+                    
+                    <a href="./viewtopic.php?f=516&amp;p=107398#p107398"><img src="./styles/absolution/imageset/icon_topic_latest.gif" width="11" height="9" alt="Перейти к последнему сообщению" title="Перейти к последнему сообщению"></a>
+                    <br><span class="fade">15.фев.2017, 21:26</span>
+                    
+                </td>
+                <td class="forumtopics">
+                    <div class="statbubble"><span>19</span><br>Темы</div>
+                </td>
+                <td class="forumposts">
+                    <div class="statbubble"><span>48</span><br>Сообщения</div>
+                </td>
+                
+            </tr>
+            
+            <tr>
+                <td class="forumicon"><img src="./styles/absolution/imageset/forum_read_subforum.gif" width="38" height="38" alt="Нет непрочитанных сообщений" title="Нет непрочитанных сообщений"></td>
+                <td class="forumdetails">
+                    
+                    <a href="./viewforum.php?f=195" class="forumtitle">Другие турниры</a><br>
+                    <span class="forum-descriptions"></span>
+
+                    
+                </td>
+                
+                <td class="forumlastpost">
+                    
+                    Последнее сообщение  <a href="./memberlist.php?mode=viewprofile&amp;u=46688">ValdsCritery</a>
+                    
+                    <a href="./viewtopic.php?f=89&amp;p=105026#p105026"><img src="./styles/absolution/imageset/icon_topic_latest.gif" width="11" height="9" alt="Перейти к последнему сообщению" title="Перейти к последнему сообщению"></a>
+                    <br><span class="fade">20.дек.2016, 22:19</span>
+                    
+                </td>
+                <td class="forumtopics">
+                    <div class="statbubble"><span>12</span><br>Темы</div>
+                </td>
+                <td class="forumposts">
+                    <div class="statbubble"><span>32</span><br>Сообщения</div>
+                </td>
+                
+            </tr>
+            
+            <tr>
+                <td class="forumicon"><img src="./styles/absolution/imageset/forum_read.gif" width="38" height="38" alt="Нет непрочитанных сообщений" title="Нет непрочитанных сообщений"></td>
+                <td class="forumdetails">
+                    
+                    <a href="./viewforum.php?f=142" class="forumtitle">Форум для нытья</a><br>
+                    <span class="forum-descriptions">Собрание  бедбитов, кулеров, отключений електричества, обрывов интернета и остальных несправедливостей.<br>  В других разделах форума, конференциях, мейлах и личках данную инфу постить не нужно.</span>
+
+                    
+                </td>
+                
+                <td class="forumlastpost">
+                    
+                    Последнее сообщение  <a href="./memberlist.php?mode=viewprofile&amp;u=49486">zaebantas</a>
+                    
+                    <a href="./viewtopic.php?f=142&amp;p=130937#p130937"><img src="./styles/absolution/imageset/icon_topic_latest.gif" width="11" height="9" alt="Перейти к последнему сообщению" title="Перейти к последнему сообщению"></a>
+                    <br><span class="fade">02.май.2019, 07:54</span>
+                    
+                </td>
+                <td class="forumtopics">
+                    <div class="statbubble"><span>21</span><br>Темы</div>
+                </td>
+                <td class="forumposts">
+                    <div class="statbubble"><span>130</span><br>Сообщения</div>
+                </td>
+                
+            </tr>
+            
+    </tbody></table>
+</div>
+</div>
+<br><br>
+
+<div class="catglow">
+    <div class="cathead-m">
+        <div class="cathead-r">
+            <div class="cathead-l">
+                <a href="./viewforum.php?f=84">Бэкинговый форум</a>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="trigger active"><a href="#"></a></div>
+    <div class="collapsethis">
+        <table class="cat">
+            
+            <tbody><tr>
+                <td class="forumicon"><img src="./styles/absolution/imageset/forum_read.gif" width="38" height="38" alt="Нет непрочитанных сообщений" title="Нет непрочитанных сообщений"></td>
+                <td class="forumdetails">
+                    
+                    <a href="./viewforum.php?f=35" class="forumtitle">Рынок долей</a><br>
+                    <span class="forum-descriptions">Продажа долей учасников команды, учасникам и партнерам команды.  Запускаеться в тестовом режиме, более детальные условия покупки-продажи появятся чуть позже. Покупка долей происходит из БР игроков команды.</span>
+
+                    
+                </td>
+                
+                <td class="forumlastpost">
+                    
+                    Последнее сообщение  <a href="./memberlist.php?mode=viewprofile&amp;u=28102">godlov3sme</a>
+                    
+                    <a href="./viewtopic.php?f=35&amp;p=105186#p105186"><img src="./styles/absolution/imageset/icon_topic_latest.gif" width="11" height="9" alt="Перейти к последнему сообщению" title="Перейти к последнему сообщению"></a>
+                    <br><span class="fade">26.дек.2016, 18:43</span>
+                    
+                </td>
+                <td class="forumtopics">
+                    <div class="statbubble"><span>210</span><br>Темы</div>
+                </td>
+                <td class="forumposts">
+                    <div class="statbubble"><span>1535</span><br>Сообщения</div>
+                </td>
+                
+            </tr>
+            
+            <tr>
+                <td class="forumicon"><img src="./styles/absolution/imageset/forum_read_subforum.gif" width="38" height="38" alt="Нет непрочитанных сообщений" title="Нет непрочитанных сообщений"></td>
+                <td class="forumdetails">
+                    
+                    <a href="./viewforum.php?f=77" class="forumtitle">Бекинговые фонды</a><br>
+                    <span class="forum-descriptions">Все покупки долей и вопросы деятельность фондов  тут.</span>
+
+                    
+                </td>
+                
+                <td class="forumlastpost">
+                    
+                    Последнее сообщение  <a href="./memberlist.php?mode=viewprofile&amp;u=41">maximsevas</a>
+                    
+                    <a href="./viewtopic.php?f=77&amp;p=97482#p97482"><img src="./styles/absolution/imageset/icon_topic_latest.gif" width="11" height="9" alt="Перейти к последнему сообщению" title="Перейти к последнему сообщению"></a>
+                    <br><span class="fade">01.июл.2016, 16:18</span>
+                    
+                </td>
+                <td class="forumtopics">
+                    <div class="statbubble"><span>61</span><br>Темы</div>
+                </td>
+                <td class="forumposts">
+                    <div class="statbubble"><span>2206</span><br>Сообщения</div>
+                </td>
+                
+            </tr>
+            
+            <tr>
+                <td class="forumicon"><img src="./styles/absolution/imageset/forum_read_subforum.gif" width="38" height="38" alt="Нет непрочитанных сообщений" title="Нет непрочитанных сообщений"></td>
+                <td class="forumdetails">
+                    
+                    <a href="./viewforum.php?f=189" class="forumtitle">Backing Online</a><br>
+                    <span class="forum-descriptions"></span>
+
+                    
+                </td>
+                
+                <td class="forumlastpost">
+                    
+                    Последнее сообщение  <a href="./memberlist.php?mode=viewprofile&amp;u=46094">dcczzi</a>
+                    
+                    <a href="./viewtopic.php?f=443&amp;p=103341#p103341"><img src="./styles/absolution/imageset/icon_topic_latest.gif" width="11" height="9" alt="Перейти к последнему сообщению" title="Перейти к последнему сообщению"></a>
+                    <br><span class="fade">08.ноя.2016, 22:41</span>
+                    
+                </td>
+                <td class="forumtopics">
+                    <div class="statbubble"><span>331</span><br>Темы</div>
+                </td>
+                <td class="forumposts">
+                    <div class="statbubble"><span>9677</span><br>Сообщения</div>
+                </td>
+                
+            </tr>
+            
+    </tbody></table>
+</div>
+</div>
+<br><br>
+
+<div class="catglow">
+    <div class="cathead-m">
+        <div class="cathead-r">
+            <div class="cathead-l">
+                <a href="./viewforum.php?f=199">Обсуждение покер-румов</a>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="trigger active"><a href="#"></a></div>
+    <div class="collapsethis">
+        <table class="cat">
+            
+            <tbody><tr>
+                <td class="forumicon"><img src="./styles/absolution/imageset/forum_read.gif" width="38" height="38" alt="Нет непрочитанных сообщений" title="Нет непрочитанных сообщений"></td>
+                <td class="forumdetails">
+                    
+                    <a href="./viewforum.php?f=201" class="forumtitle">Обсуждение покер-румов</a><br>
+                    <span class="forum-descriptions"></span>
+
+                    
+                </td>
+                
+                <td class="forumlastpost">
+                    
+                    Последнее сообщение  <a href="./memberlist.php?mode=viewprofile&amp;u=47924">Agrochim</a>
+                    
+                    <a href="./viewtopic.php?f=201&amp;p=110716#p110716"><img src="./styles/absolution/imageset/icon_topic_latest.gif" width="11" height="9" alt="Перейти к последнему сообщению" title="Перейти к последнему сообщению"></a>
+                    <br><span class="fade">17.апр.2017, 14:34</span>
+                    
+                </td>
+                <td class="forumtopics">
+                    <div class="statbubble"><span>6</span><br>Темы</div>
+                </td>
+                <td class="forumposts">
+                    <div class="statbubble"><span>15</span><br>Сообщения</div>
+                </td>
+                
+            </tr>
+            
+    </tbody></table>
+</div>
+</div>
+<br><br>
+
+<div class="catglow">
+    <div class="cathead-m">
+        <div class="cathead-r">
+            <div class="cathead-l">
+                <a href="./viewforum.php?f=196">Комментируем статьи на нашем сайте</a>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="trigger active"><a href="#"></a></div>
+    <div class="collapsethis">
+        <table class="cat">
+            
+            <tbody><tr>
+                <td class="forumicon"><img src="./styles/absolution/imageset/forum_read.gif" width="38" height="38" alt="Нет непрочитанных сообщений" title="Нет непрочитанных сообщений"></td>
+                <td class="forumdetails">
+                    
+                    <a href="./viewforum.php?f=296" class="forumtitle">Обсуждение статьей в блогах</a><br>
+                    <span class="forum-descriptions"></span>
+
+                    
+                </td>
+                
+                <td class="forumlastpost">
+                    
+                    Последнее сообщение  <a href="./memberlist.php?mode=viewprofile&amp;u=50968">marius</a>
+                    
+                    <a href="./viewtopic.php?f=296&amp;p=138831#p138831"><img src="./styles/absolution/imageset/icon_topic_latest.gif" width="11" height="9" alt="Перейти к последнему сообщению" title="Перейти к последнему сообщению"></a>
+                    <br><span class="fade">27.ноя.2019, 22:38</span>
+                    
+                </td>
+                <td class="forumtopics">
+                    <div class="statbubble"><span>686</span><br>Темы</div>
+                </td>
+                <td class="forumposts">
+                    <div class="statbubble"><span>803</span><br>Сообщения</div>
+                </td>
+                
+            </tr>
+            
+        </tbody></table>
+    </div>
+</div>
+
+</div>
+
+
+<script type="text/javascript">
+    $(".forumlist").collapse({
+        show: function () {
+            this.animate({
+                opacity: 'toggle',
+                height: 'toggle'
+            }, 300);
+        },
+        hide: function () {
+            this.animate({
+                opacity: 'toggle',
+                height: 'toggle'
+            }, 300);
+        }
+    });
+</script>
+
+<br>
+<br>
+<div class="catglow">
+    <div class="cathead-m">
+        <div class="cathead-r">
+            <div class="cathead-l">
+            	Информация
+            </div>
+        </div>
+    </div>
+    <div class="collapsethis">
+    	
+            <div class="statspanel" style="background-image: url('./styles/absolution/theme/images/lock.png');">
+                <form method="post" action="./ucp.php?mode=login">
+                    <fieldset class="quick-login">
+                        <label for="username">Имя пользователя:</label>&nbsp;<input type="text" name="username" id="username" size="10" class="inputbox" title="Имя пользователя">
+                        <label for="password">Пароль:</label>&nbsp;<input type="password" name="password" id="password" size="10" class="inputbox" title="Пароль">
+                        
+                            <input type="checkbox" name="autologin" id="autologin" class="tip" original-title="Автоматически входить при каждом посещении"> &nbsp;
+                        
+                        <input type="submit" name="login" value="Вход" class="button2">
+                        <input type="hidden" name="redirect" value="./index.php?">
+
+                    </fieldset>
+                </form>
+            </div>
+        
+        	<div class="statspanel" style="background-image: url('./styles/absolution/theme/images/who-is-online.png');">
+                Всего посетителей: <strong>26</strong>, из них зарегистрированных: 3, скрытых: 0 и гостей: 23 <!--(основано на активности пользователей за последние 5 минут)-->
+                <!--<br />Больше всего посетителей (<strong>357</strong>) здесь было 22.май.2017, 13:40-->
+                <br><br>Зарегистрированные пользователи: <span style="color: #9E8DA7;" class="username-coloured">Bing [Bot]</span>, <span style="color: #9E8DA7;" class="username-coloured">Google [Bot]</span>, <a href="./memberlist.php?mode=viewprofile&amp;u=47415">sancti</a><br>
+                <br><strong>Легенда: <a style="color:#0066FF" href="./memberlist.php?mode=group&amp;g=25252">Администраторы</a>, <a href="./memberlist.php?mode=group&amp;g=25265">FreeTeam Pro</a>, <a href="./memberlist.php?mode=group&amp;g=25262">Freeroll</a>, <a style="color:#0066FF" href="./memberlist.php?mode=group&amp;g=25251">Супермодераторы</a>, <a href="./memberlist.php?mode=group&amp;g=25254">Новые пользователи</a>, <a href="./memberlist.php?mode=group&amp;g=25270">Trener</a></strong>   
+                <br>    
+            </div>
+        
+	<h3>Топлист благодарностей</h3>
+	<p><a href="./memberlist.php?mode=viewprofile&amp;u=11">happy</a> (2009), <a href="./memberlist.php?mode=viewprofile&amp;u=1343">Aleksander K.</a> (1374), <a href="./memberlist.php?mode=viewprofile&amp;u=28098">smith</a> (1349), <a href="./memberlist.php?mode=viewprofile&amp;u=130">Skazo4nik777</a> (1326), <a href="./memberlist.php?mode=viewprofile&amp;u=45975">Uraganchik</a> (1319), <a href="./memberlist.php?mode=viewprofile&amp;u=45730">SerhioMD</a> (1273), <a href="./memberlist.php?mode=viewprofile&amp;u=39337">ageless92</a> (1186), <a href="./memberlist.php?mode=viewprofile&amp;u=45272">gromozeeka</a> (1072), <a href="./memberlist.php?mode=viewprofile&amp;u=38810">Jeka</a> (1015), <a href="./memberlist.php?mode=viewprofile&amp;u=7">pokerukr</a> (939), <a href="./memberlist.php?mode=viewprofile&amp;u=45277">MILKEVICH</a> (936), <a href="./memberlist.php?mode=viewprofile&amp;u=46414">pokerbabe</a> (910), <a href="./memberlist.php?mode=viewprofile&amp;u=46202">_MolFaR_</a> (859), <a href="./memberlist.php?mode=viewprofile&amp;u=46340">Hammerfest</a> (799), <a href="./memberlist.php?mode=viewprofile&amp;u=46094">dcczzi</a> (616), <a href="./memberlist.php?mode=viewprofile&amp;u=35790">frosty</a> (593), <a href="./memberlist.php?mode=viewprofile&amp;u=46628">Fieldy714</a> (538), <a href="./memberlist.php?mode=viewprofile&amp;u=46922">Excellent233</a> (528), <a href="./memberlist.php?mode=viewprofile&amp;u=45979">vv_d_vv</a> (519), <a href="./memberlist.php?mode=viewprofile&amp;u=46840">Whitepoker77</a> (456), <a href="./memberlist.php?mode=viewprofile&amp;u=46152">iceboys</a> (456), <a href="./memberlist.php?mode=viewprofile&amp;u=45894">Redo77</a> (445), <a href="./memberlist.php?mode=viewprofile&amp;u=38625">Fahrenheit95</a> (430), <a href="./memberlist.php?mode=viewprofile&amp;u=47253">Mozgolom</a> (427), <a href="./memberlist.php?mode=viewprofile&amp;u=46632">handbik666</a> (423), <a href="./memberlist.php?mode=viewprofile&amp;u=46990">Nice SP</a> (418), <a href="./memberlist.php?mode=viewprofile&amp;u=45105">Brumkorn</a> (408), <a href="./memberlist.php?mode=viewprofile&amp;u=46755">F1bonach1</a> (406), <a href="./memberlist.php?mode=viewprofile&amp;u=18566">BlackTamerlan</a> (406), <a href="./memberlist.php?mode=viewprofile&amp;u=49769">vadun_1990</a> (404)</p>
+
+        	<div class="statspanel" style="background-image: url('./styles/absolution/theme/images/statistics.png');">
+            	Всего сообщений: <strong>126722</strong> • Тем: <strong>10555</strong> • Пользователей: <strong>2405</strong> • Новый пользователь: <strong><a href="./memberlist.php?mode=viewprofile&amp;u=51590">talamaska</a></strong>
+            </div>
+        <!-- Start Ultimate Points --><!-- End Ultimate Points -->
+		<div class="indexlinks">
+			<a href="./memberlist.php?mode=leaders">Наша команда</a> | <a href="./ucp.php?mode=delete_cookies">Удалить cookies конференции</a> | 
+			<a href="./faq.php">FAQ</a>
+			
+			<br>Текущее время: 29.янв.2020, 18:14
+		</div>
+    </div>
+</div>
+
+
+
+
+</div>
+</div><!-- /contentpadding -->
+</div><!-- /wrap -->
+
+<div style="clear: both;"></div>
+
+<div class="footer">
+    <!-- Please do not remove the following credit line. This style is free, and attribution such as this helps to keep it in development. Thanks -->
+    <div class="footer-content" style="max-width: 1265px; min-width: 480px !important; width: auto !important">
+        <div class="footer-menu">
+            <ul class="main-foot-menu">
+                <li><a class="first-link" href="/">FreeTeam</a></li>
+                <li><a href="/trainings">Тренировки</a></li>
+                <li><a href="/funds">Фонды</a></li>
+                <li><a href="/blog">Блог</a></li>
+                <li><a href="/forum/">Форум</a></li>
+                <li><a href="/about">О нас</a></li>
+                <li><a href="/shop">Магазин</a></li>
+                <li><span><a class="last-link" href="/register">Присоединиться</a></span></li>
+            </ul>
+        </div>
+        <div class="social">
+            <ul class="social-menu">
+                <li><a class="facebook_icon" href="https://www.facebook.com/FreeTeamClub"></a></li>
+                <li><a class="twitter_icon" href="https://twitter.com/FreeTeamClub"></a></li>
+                <li><a class="gmail_icon" href="https://plus.google.com/u/0/communities/115765540769245158371"></a></li>
+                <li><a class="vk_icon" href="https://vk.com/freeteamclub"></a></li>
+            </ul>    
+        </div>
+        <div class="support">
+            Информационная и техническая поддержка сайта FreeTeam:<br>skype: freeteam.support<br>email: support@freeteamclub.com
+        </div>
+        <div class="copyrights">
+            <br>Все права защищены © 2019 FreeTeam<br>Сайт предназначен для лиц старше 18 лет
+        </div>
+    </div>
+</div>
+
+
+</div><!-- /noise -->
+<script type="text/javascript">
+    $(function () {
+        $('.tip').tipsy({fade: true, gravity: 's'});
+    });
+</script>
+<div>
+    <a id="bottom" accesskey="z"></a>
+    <img src="./cron.php?cron_type=notify_rules" width="1" height="1" alt="cron">
+</div>
+
+<!-- /Google counter -->
+ <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-35623368-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+</body></html>
