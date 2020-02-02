@@ -1,10 +1,10 @@
-package lesson2;
+package itstep.lesson2;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
 
 public class Application {
@@ -22,6 +22,7 @@ public class Application {
             System.out.println("loaded = " + strArr[i] + "equal" +webDriver.getCurrentUrl());
             Thread.sleep(1000);
         }
+        WebElement detailsLink = webDriver.findElement(By.linkText("details"));
 //        webDriver.navigate().to("http://www.google.com.ua/");
 //        System.out.println("Google " + webDriver.getCurrentUrl());
 //        webDriver.navigate().to("http://dou.ua/");
