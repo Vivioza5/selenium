@@ -8,6 +8,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.List;
 
 public class CalcPetra {
+    public static class MethodsCalc {
+        public static void clickButton(WebElement button1,WebElement button2,WebElement button3){
+            button1.click();
+            button2.click();
+            button3.click();
+        }
+    }
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
         WebDriver webDriver = new ChromeDriver();
@@ -23,9 +30,10 @@ public class CalcPetra {
             if (screen.getText().equals(".")){
                 c.click();
                 System.out.println(" Это должно быть точка");
-                spanButtons.get(13).click();
-                spanButtons.get(14).click();
-                spanButtons.get(6).click();
+                MethodsCalc.clickButton(spanButtons.get(13),spanButtons.get(14),spanButtons.get(6));
+//                spanButtons.get(13).click();
+//                spanButtons.get(14).click();
+//                spanButtons.get(6).click();
                 if (screen.getText().equals("0.5")){
                     System.out.println("Точка работает");
                 } else System.err.println("Точка не работает");
