@@ -39,12 +39,12 @@ public class HwCalcTest {
         WebDriver webDriver = new ChromeDriver();
         webDriver.navigate().to("http://sivka.zzz.com.ua/calculator2.html");
         List<WebElement> keys = webDriver.findElements(By.cssSelector("span"));
-        System.out.println(testArr());
+//        System.out.println(testArr());
 
         for (int i = 0; i < keys.size(); i++) {
             WebElement key = keys.get(i);
             WebElement screen = webDriver.findElement(By.className("screen"));
-//            System.out.println("key " + (i + 1) + " " + " = " + key.getText());
+            System.out.println("key " + (i) + " " + " = " + key.getText());
             keys.get(i).click();
 //            System.out.println((i+1)+": Pressed key= "+key.getText() );
             Thread.sleep (10);
