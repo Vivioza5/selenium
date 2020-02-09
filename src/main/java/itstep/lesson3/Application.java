@@ -1,4 +1,4 @@
-package itstep.lesson2;
+package itstep.lesson3;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

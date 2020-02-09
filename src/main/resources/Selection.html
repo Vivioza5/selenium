@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Selection</title>
+
+    <style>
+        label:nth-child(3) > select {
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<form action="">
+    <label>
+        os
+        <select name="os">
+            <option>Windows</option>
+            <option>Linux</option>
+            <option>Android</option>
+            <option>IOS</option>
+        </select>
+    </label>
+
+    <br>
+    <label>
+        browser
+        <select name="browser">
+            <option value="1">Firefox</option>
+            <option value="2">Opera</option>
+            <option>Chrome</option>
+            <option selected>Edge</option>
+        </select>
+    </label>
+</form>
+</body>
+</html>
