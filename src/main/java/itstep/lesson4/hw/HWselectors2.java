@@ -63,7 +63,8 @@ int testItems=0;
         //  проверка на вывод в форме выввода с помощью метода MethodsPizza.checkItems
         String[] expectedOptions4 = {};
         List<WebElement> allitemsOut4 = selectPizza.getAllSelectedOptions();
-        MethodsPizza.checkItems(allitemsOut4,expectedOptions4);
+        String testOut4=MethodsPizza.checkItems(allitemsOut4,expectedOptions4) ? "The form is empty now" : "test not ok";
+        System.out.println(testOut4);
         webDriver.quit();
 
     }
