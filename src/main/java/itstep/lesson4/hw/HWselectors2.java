@@ -12,19 +12,22 @@ public class HWselectors2 {
 //    метод для проверки соответсвия таблицы вывода выбранным элементам остался вопрос как выводить статус проверки после прохождения цикла
     public static class MethodsPizza {
 
-        public static void checkItems(List<WebElement> allitemsOut2 , String[] expectedOptions) {
-
+        public static boolean checkItems(List<WebElement> allitemsOut2 , String[] expectedOptions) {
+int testItems=0;
         if (allitemsOut2.size() == expectedOptions.length) {
             for (int i = 0; i < allitemsOut2.size(); i++) {
                 WebElement option = allitemsOut2.get(i);
                 if(expectedOptions[i].equals(option.getText())){
-                    System.out.println("test ok");
+//                    System.out.println("test ok");
+                    testItems++;
                 }
             }
         }else {
             System.err.println("размеры не совпадают");
         }
+        return testItems==expectedOptions.length;
         }
+
     }
     public static void main(String[] args) throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
@@ -39,20 +42,22 @@ public class HWselectors2 {
         selectPizza.selectByIndex(0);
         WebElement checkOut2 = webDriver.findElement(By.cssSelector("#out2"));
         String expectedValue1 = "Cheese";
-        String testOut1=checkOut2.getText().equals(expectedValue1)? "test ok" : "test not ok";
+        String testOut1=checkOut2.getText().equals(expectedValue1)? "All items equals" : "test not ok";
         System.out.println(testOut1);
 
 //  выбор элемента Pepperoni и проверка на вывод в форме выввода с помощью метода MethodsPizza.checkItems
         selectPizza.selectByValue("Pepperoni");
         List<WebElement> allitemsOut2 = selectPizza.getAllSelectedOptions();
         String[] expectedOptions = {"Cheese", "Pepperoni"};
-        MethodsPizza.checkItems(allitemsOut2,expectedOptions);
+        String testOut2=MethodsPizza.checkItems(allitemsOut2,expectedOptions) ? "All items equals" : "test not ok";
+        System.out.println(testOut2);
 
         //  выбор элемента Mushrooms и проверка на вывод в форме выввода с помощью метода MethodsPizza.checkItems и очистка вібора
         selectPizza.selectByVisibleText("Mushrooms");
         List<WebElement> allitemsOut3 = selectPizza.getAllSelectedOptions();
         String[] expectedOptions2 = {"Cheese", "Pepperoni","Mushrooms"};
-        MethodsPizza.checkItems(allitemsOut3,expectedOptions2);
+        String testOut3=MethodsPizza.checkItems(allitemsOut3,expectedOptions2) ? "All items equals" : "test not ok";
+        System.out.println(testOut3);
         selectPizza.deselectAll();
 
         //  проверка на вывод в форме выввода с помощью метода MethodsPizza.checkItems
