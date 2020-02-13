@@ -47,6 +47,8 @@ int testItems=0;
 
 //  выбор элемента Pepperoni и проверка на вывод в форме выввода с помощью метода MethodsPizza.checkItems
         selectPizza.selectByValue("Pepperoni");
+//        метод получает название ингредиента > добавляет в стринг массив> создает список из selectPizza > сравнивает списки
+//        для пустой формі нужен отдельній метод в єтом случае
         List<WebElement> allitemsOut2 = selectPizza.getAllSelectedOptions();
         String[] expectedOptions = {"Cheese", "Pepperoni"};
         String testOut2=MethodsPizza.checkItems(allitemsOut2,expectedOptions) ? "All items equals" : "test not ok";
