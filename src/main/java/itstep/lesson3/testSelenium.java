@@ -9,7 +9,7 @@ import org.w3c.dom.ls.LSOutput;
 
 public class testSelenium {
     public static void main(String[] args) throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "/home/vitaliy/dev/webdriver/chromedriver");
         WebDriver webDriver = new ChromeDriver();
         String url1 ="http://www.google.com/";
         webDriver.get(url1);
